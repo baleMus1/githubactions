@@ -38,8 +38,8 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${balemus1}
+          password: ${dckr_pat_Zb_bk4bkx9izt_4WoZ7hHhEB6YA}
 
       # Build and push Docker image
       - name: Build and push Docker image
@@ -50,7 +50,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/my-app:${{ github.sha }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/my-app:latest
+            ${balemus1}/my-app:${{ github.sha }}
+            ${balemus1}/my-app:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
